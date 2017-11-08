@@ -1,0 +1,84 @@
+class Stack{
+    double []m_dData;
+    int N;
+    
+    public Stack(){
+         m_dData=new double[1];
+         N=0;
+    }
+    
+    
+    public boolean isEmpty(){
+        return N==0;
+    }
+    
+    
+    public double pop(){
+        if(isEmpty())
+            throws new IllegalArgumentException("poping an empty stack!");
+        double item=m_dData[--N];
+        m_dData[N]=null;
+        if(N>0&&N==m_dData.length/4)  resize(m_dData.length/2);
+        return item;
+    }
+    
+    
+    public double push(double date){
+          if(N==m_dData.length)   resize(2*N);
+          m_dData.length[N]=data;
+    }
+    
+    
+    private void resize(int size){
+        double copy[]=new double [size];
+        for(int i=0;i<N;i++)   copy[i]= m_dData[i];
+        m_dData=copy;
+    }
+    
+    
+    public double topItem(){
+        if(isEmpty())
+            throws new IllegalArgumentException("poping an empty stack!");
+        int n=N;
+        return m_dData[--n];
+    }
+}
+
+
+puclic StackWithMax{
+    private Stack data;
+    private Stack maxStack;
+    
+    StackWithMax(){
+        data=new Stack();
+        maxStack=new Stack();
+    }
+    
+    
+    public void push(double data){
+        data.push(data);
+        if(maxStack.isEmpty())  
+            maxStack.push(data);
+        else  if(data.topItem()>maxStack.topItem())
+            maxStack.push(data);   
+    }
+    
+    
+    public double pop(){
+        double item=data.pop();
+        if(ite==maxStack.topItem())
+            maxStack.pop();
+        return item;    
+    }
+    
+    
+    public double max(){
+        return maxStack.topItem();
+    }
+}
+
+
+
+
+
+
